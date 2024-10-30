@@ -1,7 +1,21 @@
 import "./investors.css"
 function TransferShare({state,account}){
 
-    return<><form>
+    async function ShareTransfer(event)
+    {
+        try {
+            event.preventDefault()
+            const {contract} = state
+            const amount = document.querySelector("#amount").value
+            const _to = document.querySelector("#to").value
+            const sendShare = await contract.methods.transferShare(amount,_to).send({from:account,gas:480000})
+            console.log(sendShare)
+        } catch (error) {
+            alert(error)
+        }
+    }
+
+    return<><form onSubmit={ShareTransfer}>
     <label className="label1" htmlFor="amount">
     <span className="font">Amount:</span>
         </label>

@@ -92,7 +92,7 @@ nextProposalId++;
 
 
 
-function voteProposal(uint proposalId) public onlyInvestor(){
+function voteId(uint proposalId) public onlyInvestor(){
 Proposal storage proposal = proposals[proposalId];
 require(isVoted[msg.sender][proposalId]==false,"You have already voted for this proposal");
 require(proposal.end>=block.timestamp,"Voting Time Ended");

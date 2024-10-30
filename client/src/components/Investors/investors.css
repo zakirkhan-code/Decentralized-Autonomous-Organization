@@ -50,6 +50,13 @@ input[type=text] {
   padding:2px;
 }
 
+span{
+  padding-right: 3px;
+  font-size: large;
+  font-weight: bold;
+  color: black;
+}
+
 p{
   color: white;
   text-align: center;

@@ -1,7 +1,18 @@
 import "./manager.css"
 function ExecuteProposal({state,account}){
    
-    return<><form >
+    async function ProposalExecute(event)
+    {
+        try {
+            event.preventDefault()
+            const {contract} = state
+            const proposalId = document.querySelector('#id').value
+            await contract.methods.executeProposal(proposalId).send({from:account,gas:480000})
+        } catch (error) {
+            alert(error)
+        }
+    }
+    return<><form onSubmit={ProposalExecute}>
     <label className="label1" htmlFor="proposalId">
     <span className="font">Proposal Id:</span>
         </label>
